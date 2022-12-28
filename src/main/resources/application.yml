@@ -8,19 +8,19 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 
-
-
 spring:
-  main:
-    allow-bean-definition-overriding: true
-    web-application-type: reactive
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;
+    username: yj
+    password:
+#  main:
+#    allow-bean-definition-overriding: true
+#    web-application-type: reactive
 
   application:
     name: gateway-service
-#  cloud:
-#    gateway:
-#      routes:
-#        - id: user-service
-#          uri: http://localhost:8080
-#          predicates:
-#            - Path=/user/**
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-handlers-package: com.example.flabcaloriecountergateway.user.util
